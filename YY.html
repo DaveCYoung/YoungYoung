@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app="exModule">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	<title> Young & Young</title>
+	<link rel="stylesheet" type="text/css" href="yy.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="icon" href="newf.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Besley&family=Domine&family=Playfair+Display&family=Raleway:wght@350&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=BenchNine' rel='stylesheet' type='text/css'>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.js" type="text/javascript"></script>
+	<script src="yy.js" type="text/javascript"></script>
+	
+
+</head>
+<body ng-controller="mainController">
+<!-- <div class = "menu">
+		<div class = "menuitem"> ABOUT ME</div>
+		<div class = "menuitem">  CONTACT </a></div>
+</div> -->
+
+<div class = "header">
+	<div class = "headerinner">
+		<p class = "maintitle"> Young & Young </p> 
+		<p class = "maintitlesub">Let's build together. </p>
+
+	</div>
+		<img class = "logo" src="newf.png" height="150">
+</div>
+
+<!-- Normal Menue -->
+<div class = "menu">
+
+		<div class = "menuitem" ng-click = "menuoperation('home')"> HOME </div>
+
+		<div class = "menuitem" ng-click = "menuoperation('practiceareas')"> LEGAL PRACTICE AREAS 
+			<div class = "dropdownholder"> 
+				<div class="dropdownitem" ng-click = "menuoperation('generalcounsel')"> OUTSIDE GENERAL COUNSEL </div>
+				<div class="dropdownitem" ng-click = "menuoperation('corporate')"> CORPORATE </div>
+				<div class="dropdownitem" ng-click = "menuoperation('regulatory')"> REGULATORY </div>
+				<div class="dropdownitem" ng-click = "menuoperation('employment')"> LABOR AND EMPLOYMENT </div>
+				<div class="dropdownitem" ng-click = "menuoperation('litigation')"> CIVIL LITIGATION </div>
+			</div>
+		</div>
+		<div class = "menuitem" ng-click = "menuoperation('otherserv')"> OTHER SERVICES
+			<div class = "dropdownholder"> 
+				<div class="dropdownitem" ng-click = "menuoperation('investigations')"> INVESTIGATIONS </div>
+				<div class="dropdownitem" ng-click = "menuoperation('webdev')"> WEB DESIGN</div>
+			</div>
+		</div>
+		<div class = "menuitem" ng-click = "menuoperation('attorneys')"> ATTORNEYS
+			<div class = "dropdownholder"> 
+					<div class="dropdownitem" ng-click = "menuoperation('emily')"> EMILY YOUNG </div>
+					<div class="dropdownitem" ng-click = "menuoperation('dave')"> DAVE YOUNG </div>
+			</div>
+		</div>
+		<div class = "menuitem" ng-click = "click(5)"> CONTACT US</div>
+	
+</div>
+
+<!-- Mobile Menu -->
+<div class = "mobilemenu">
+
+	<div class = "menuicon">
+		<img class = "hamburger" ng-show = "mobilemenuarray.mobileon" ng-click = "menuoperation('menuon')" src="menuon.png">
+		<img class = "hamburger" ng-show = "mobilemenuarray.mobileoff" ng-click= "menuoperation('menuoff')"src="menuoff.png">
+		<img class = "hamburger" ng-show = "mobilemenuarray.back" ng-click= "menuoperation('back')"src="back.png">
+	</div>
+		
+		<div class = "mobilemenuitem" ng-show = "mobilemenuarray.menuon" ng-click = "menuoperation('home')"> HOME </div>
+
+		<div class = "mobilemenuitem" ng-show = "mobilemenuarray.menuon" ng-click = "menuoperation('practiceareas')"> LEGAL PRACTICE AREAS </div>
+			<div class = "mobilemenuitem" ng-show = "mobilemenuarray.practiceareason" ng-click = "menuoperation('generalcounsel')"> OUTSIDE GENERAL COUNSEL </div>
+			<div class = "mobilemenuitem" ng-show = "mobilemenuarray.practiceareason" ng-click = "menuoperation('corporate')"> CORPORATE </div>
+			<div class = "mobilemenuitem" ng-show = "mobilemenuarray.practiceareason" ng-click = "menuoperation('regulatory')"> REGULATORY </div>
+			<div class = "mobilemenuitem" ng-show = "mobilemenuarray.practiceareason" ng-click = "menuoperation('employment')"> LABOR AND EMPLOYMENT </div>
+			<div class = "mobilemenuitem" ng-show = "mobilemenuarray.practiceareason" ng-click = "menuoperation('litigation')"> CIVIL LITIGATION </div>
+
+		<div class = "mobilemenuitem" ng-show = "mobilemenuarray.menuon" ng-click = "menuoperation('otherserv')"> OTHER SERVICES</div>
+			<div class = "mobilemenuitem" ng-show = "mobilemenuarray.otheron" ng-click = "menuoperation('investigations')"> INVESTIGATIONS </div>
+			<div class = "mobilemenuitem" ng-show = "mobilemenuarray.otheron" ng-click = "menuoperation('webdev')"> WEB DESIGN </div>
+		<div class = "mobilemenuitem" ng-show = "mobilemenuarray.menuon" ng-click = "menuoperation('attorneys')"> ATTORNEYS</div>
+				<div class = "mobilemenuitem" ng-show = "mobilemenuarray.attorneyson" ng-click = "menuoperation('emily')"> EMILY YOUNG </div>
+				<div class = "mobilemenuitem" ng-show = "mobilemenuarray.attorneyson" ng-click = "menuoperation('dave')"> DAVE YOUNG </div>
+		<div class = "mobilemenuitem" ng-show = "mobilemenuarray.menuon" ng-click = "menuoperation('contactus')"> CONTACT US</div>
+	
+</div>
+<!-- <div class = "container"> -->
+	<div class = "containerinner" ng-show = "contentarray.home">
+		<p class = "containertitle left"> Our Philosophy </p> 	
+		<p class = "containerbody left"> We believe legal services should be affordable, scalable, and simple.  We seek to integrate with your team and add value to the organization from day one.  
+		</p>
+	</div>
+<!-- </div> -->
+
+<!-- <div class = "container"> -->
+	<div class = "containerinner right invert" ng-show = "contentarray.home">
+		<p class = "containertitle right invert"> How we work </p> 
+		<p class = "containerbody invert"> From our initial consult, we seek to get a realistic idea of your objectives and your businesses needs.  We craft billing arrangements and engagements that are unique to your bussiness.  Whether you simply need periodic consultation, or on site support, we are ready to help you grow.  We do not limit the scope of our work to legal issues.  We are prepared to assist in whatever capacity you need us and we pride ourselves on being more than a law firm. 
+		</p>
+	</div>	
+	<div class = "containerinner" ng-show = "contentarray.home">
+		<p class = "containertitle"> Not your father's law firm </p> 
+		<p class = "containerbody"> We leave the pretentiousness and arrogance out of the legal profession.  We keep our expenses reasonable.  We do not dictate our emails for a secretary to transcribe.  We embrace technology.  We do not pay for the mahogony desk.  You are welcome to come as you are.  
+		</p>
+	</div>
+	<div class = "containerinner right invert bottom" ng-show = "contentarray.home">
+		<p class = "containertitle right invert"> Let's get in touch</p> 
+		<p class = "containerbody invert"> Reach out at any time with a brief description of your needs and scheduling availability and we will get a consultation on the calendar.  Send inquiries to info@younglawcolorado.com. 
+		</p>	
+	</div>
+	<div class = "containerinner" ng-show = "contentarray.generalcounsel">
+		<p class = "containertitle"> Outside General Counsel </p> 
+		<p class = "containerbody"> We are ready to address your toughest legal questions.  From day in day out questions about employment and termination, to contract review and drafting, to navigating complex regulatory issues - we are here to help.  
+		</p>
+	</div>
+	<div class = "containerinner right invert" ng-show = "contentarray.generalcounsel">
+		<p class = "containertitle right invert"> Contract review and drafting </p> 
+		<p class = "containerbody invert"> We believe the best way to get ahead of employment issues is to ensure your workplace has a strong culture before issues arise.  We can do a comprehensive assessment of your litigation risk and make recommendations to minimize the risk of employment related litigation.  If prevention is not enough, our attorneys are prepared to represent your business in any employment related dispute.  
+		</p>	
+	</div>
+<div class = "footer">
+		<div class = "menuitem"> <img src="LI.png" height = "20"> </div>
+
+		<div class = "menuitem"> CONTACT US</div>
+</div>
+
+</body>
+</html>	
